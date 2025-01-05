@@ -1,18 +1,12 @@
 package com.example.personallauncher
 
 import android.content.pm.ResolveInfo
-import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class LauncherAdapter(val activities: List<ResolveInfo>): RecyclerView.Adapter<LauncherViewHolder>() {
+class LauncherAdapter(private val activities: List<ResolveInfo>): RecyclerView.Adapter<LauncherViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LauncherViewHolder {
-        val layoutInflater = LayoutInflater.from(parent.context)
-        val view = layoutInflater.inflate(
-            android.R.layout.simple_list_item_1,
-            parent,
-            false
-        )
+        val view = LauncherViewHolder.createContainer(parent.context)
 
         return LauncherViewHolder(view)
     }
